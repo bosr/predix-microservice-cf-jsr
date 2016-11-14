@@ -23,6 +23,11 @@ Each Microservice Template project shares the following characteristics
 
 This project is a cloud-ready microservice that demonstrates how to create [JSR - CXF](https://cxf.apache.org/) based Services.  You simply change the @Path url and begin adding your service implementation.  It has SpringBoot, Spring Profiles and Property file management configured and ready for local development vs. cloud deployment.  It is also set up for Test Driven Development with JUnit and Mockito.
 
+The template has the following structure and can be used for any Predix microservice.
+
+<img src="images/microservice-template.png">
+
+
 ##To Download and Push predix-microservice-cf
 
 1. Download a [DevBox](https://www.predix.io/catalog/other-resources/devbox.html) and launch it in Virtual Box or install the [Dependencies](#dependencies)
