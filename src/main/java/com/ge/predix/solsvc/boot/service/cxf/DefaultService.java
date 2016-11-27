@@ -22,7 +22,7 @@ import io.swagger.annotations.ApiOperation;
  * An example of how to create a Rest service using standard javax.ws.rs
  * annotations and registered with CXF as a spring bean... see
  * src/main/resources/META-INF/spring/predix-microservice-cf-jsr-cxf-context.xml
- * 
+ *
  * @author predix
  *
  */
@@ -32,7 +32,7 @@ import io.swagger.annotations.ApiOperation;
 public class DefaultService {
 
 	/**
-	 * 
+	 *
 	 */
 	public DefaultService() {
 		super();
@@ -40,7 +40,7 @@ public class DefaultService {
 
 	/**
 	 * -
-	 * 
+	 *
 	 * @return string
 	 */
 	@SuppressWarnings("nls")
@@ -48,12 +48,13 @@ public class DefaultService {
 	@Path("/health")
 	@ApiOperation(value = "/health")
 	public Response greetings() {
-		return handleResult("{\"status\":\"up\", \"date\": \" " + new Date() + "\"}", MediaType.TEXT_PLAIN_TYPE);
+		// return handleResult("{\"status\":\"up\", \"date\": \" " + new Date() + "\"}", MediaType.TEXT_PLAIN_TYPE);
+		return handleResult("{\"status\":\"up\", \"date\": \" " + new Date() + "\"}", MediaType.APPLICATION_JSON_TYPE);
 	}
 
 	/**
 	 * Serve up static HTML files
-	 * 
+	 *
 	 * @param path - path to HTML file
 	 * @return -
 	 * @throws IOException

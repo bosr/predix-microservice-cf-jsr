@@ -10,7 +10,7 @@ import io.swagger.annotations.ApiOperation;
 
 /**
  * An example of how to create a Rest service using standard javax.ws.rs annotations but registering with CXF
- * 
+ *
  * @author predix
  */
 @Consumes(
@@ -23,12 +23,21 @@ public interface DynamicService
 {
 
     /**
-     * 
+     *
      * @return - Returns the Rest response
      */
     @GET
     @Path("/dynamic")
     @ApiOperation(value = "/dynamic")
     public Response selfRegisteredService();
+
+    /**
+     *
+     * @return - Returns an alternate Rest response
+     */
+    @GET
+    @Path("/alternate")
+    @ApiOperation(value = "/alternate")
+    public Response alternateService();
 
 }

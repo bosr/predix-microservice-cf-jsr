@@ -16,7 +16,7 @@ import com.ge.predix.solsvc.spi.IServiceManagerService;
 /**
  * This Rest service registers itself. See init() method how the service is created.
  * Any method annotated with PostContruct is like a init method.
- * 
+ *
  * @author 212307911
  */
 @Component
@@ -24,16 +24,16 @@ public class DynamicServiceImpl implements DynamicService {
 
     @Autowired
 	private IServiceManagerService serviceManagerService;
-    
+
 	/**
-	 * 
+	 *
 	 */
 	public DynamicServiceImpl() {
 		super();
 	}
 
     /**
-     * 
+     *
      */
     @PostConstruct
     public void init()
@@ -41,13 +41,22 @@ public class DynamicServiceImpl implements DynamicService {
         this.serviceManagerService.createRestWebService(this, null);
     }
     /**
-	 * 
+	 *
 	 * @return - Response
 	 */
     @Override
     public Response selfRegisteredService() {
 		return handleResult("Greetings from Self Registering Cloud Service " + new Date(),MediaType.TEXT_PLAIN_TYPE); //$NON-NLS-1$
 	}
+
+    /**
+     *
+     * @return - Response
+     */
+    @Override
+    public Response alternateService() {
+    	return handleResult("{\"status\":\"coucou\", \"date\": \" " + new Date() + "\"}", MediaType.APPLICATION_JSON_TYPE);
+    }
 
 	/**
 	 * @param entity to be wrapped into JSON response
