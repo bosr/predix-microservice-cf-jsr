@@ -28,7 +28,7 @@ import com.ge.predix.solsvc.boot.Application;
 @WebAppConfiguration
 @IntegrationTest({"server.port=0"})
 public class HelloControllerTest {
-    
+
     @Value("${local.server.port}")
     private int localServerPort;
 
@@ -44,13 +44,13 @@ public class HelloControllerTest {
 	}
 
 	/**
-	 * 
+	 *
 	 * @throws Exception -
 	 */
 	@SuppressWarnings("nls")
     @Test
 	public void getHello() throws Exception {
-		
+
 		this.base = new URL("http://localhost:" + this.localServerPort + "/service/health");
 		ResponseEntity<String> response = this.template.getForEntity(this.base.toString(), String.class);
 		assertThat(response.getBody(), startsWith("{\"status"));
@@ -60,5 +60,18 @@ public class HelloControllerTest {
 		assertThat(response.getBody(), startsWith("Greetings from Self Registering Cloud Service"));
 
 		//Now add your dependencies, your services, and test those URLs
+	}
+
+	/**
+	 *
+	 * @throws Exception -
+	 */
+	@SuppressWarnings("nls")
+    @Test
+	public void getAlternate() throws Exception {
+
+		this.base = new URL("http://localhost:" + this.localServerPort + "/service/dynamicservice/alternate");
+		ResponseEntity<String> response = this.template.getForEntity(this.base.toString(), String.class);
+		assertThat(response.getBody(), startsWith("{\"status"));
 	}
 }
